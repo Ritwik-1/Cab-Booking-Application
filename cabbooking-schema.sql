@@ -19,6 +19,9 @@ CREATE TABLE IF NOT exists CUSTOMER (
      primary key(CUSTOMER_ID)
 );
 
+create index idx_cid on CUSTOMER(CUSTOMER_ID);
+create index idx_location_cust on CUSTOMER(LOCATION_X,LOCATION_Y); 
+
 CREATE TABLE IF NOT exists VEHICLE (
     VEHICLE_REG_NO varchar(10) NOT NULL,
     VEHICLE_NAME varchar(20) NOT NULL,
@@ -56,6 +59,9 @@ CREATE TABLE IF NOT exists DRIVER (
      foreign key(VEHICLE_REG_NO) references VEHICLE(VEHICLE_REG_NO)
      
 );
+
+create index idx_did on DRIVER(DRIVER_ID);
+create index idx_location_driver on DRIVER(LOCATION_X,LOCATION_Y);
 
 CREATE TABLE IF NOT exists ADMIN (
 	 ADMIN_ID int NOT NULL,
